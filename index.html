@@ -18,6 +18,12 @@ background:#0a0a0a;
 color:#e0e0e0;
 font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 min-height:100vh;
+animation:fadein .6s ease;
+}
+
+@keyframes fadein{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 .header{
@@ -61,20 +67,20 @@ transition:all .3s ease;
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 12px 30px rgba(100,65,165,0.25);
+box-shadow:0 12px 30px rgba(100,65,165,0.25),
+0 0 20px rgba(138,43,226,0.5);
 }
-
-/* IMAGE ZOOM EFFECT */
 
 .card img{
 width:100%;
 display:block;
-filter:brightness(.95) contrast(1.1);
-transition:transform .35s ease;
+filter:brightness(.75) blur(1px) contrast(1.1);
+transition:transform .35s ease, filter .35s ease;
 }
 
 .card:hover img{
 transform:scale(1.08);
+filter:brightness(.9) blur(.3px) contrast(1.1);
 }
 
 .card::after{
@@ -124,26 +130,6 @@ content:"👁️ ";
 margin-right:4px;
 }
 
-.play{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:60px;
-color:white;
-opacity:0.9;
-z-index:10;
-pointer-events:none;
-transition:transform .25s ease, opacity .25s ease;
-}
-
-/* PLAY BUTTON GROW EFFECT */
-
-.card:hover .play{
-transform:translate(-50%,-50%) scale(1.15);
-opacity:1;
-}
-
 .duration{
 position:absolute;
 bottom:55px;
@@ -155,6 +141,23 @@ padding:3px 7px;
 border-radius:5px;
 font-weight:bold;
 z-index:10;
+}
+
+.play{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:60px;
+color:white;
+opacity:.9;
+z-index:10;
+pointer-events:none;
+transition:transform .25s ease;
+}
+
+.card:hover .play{
+transform:translate(-50%,-50%) scale(1.15);
 }
 
 </style>
@@ -249,4 +252,4 @@ z-index:10;
 </div>
 
 </body>
-  </html>
+                               </html>
