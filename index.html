@@ -15,34 +15,57 @@ box-sizing:border-box;
 
 body{
 background:#0a0a0a;
+font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 color:white;
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto;
 }
 
-/* HEADER */
+/* TOP */
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px 20px;
+.top{
+padding:20px 16px;
+text-align:center;
 background:#0f0f0f;
-border-bottom:1px solid #222;
+box-shadow:0 3px 10px rgba(0,0,0,.5);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
-font-size:22px;
+font-size:26px;
 font-weight:800;
-color:#4c8dff;
+letter-spacing:.5px;
+color:#5da2ff;
+margin-bottom:12px;
 }
 
-.search{
+.searchbar{
+display:flex;
+justify-content:center;
+}
+
+.searchbox{
+display:flex;
+align-items:center;
 background:#1c1c1c;
-border:none;
-border-radius:20px;
+border-radius:30px;
 padding:8px 14px;
-color:#ccc;
-width:150px;
+width:90%;
+max-width:420px;
+}
+
+.searchbox input{
+background:transparent;
+border:none;
+outline:none;
+color:white;
+font-size:14px;
+width:100%;
+}
+
+.searchbox span{
+margin-left:8px;
+opacity:.7;
 }
 
 /* GRID */
@@ -50,39 +73,55 @@ width:150px;
 .grid{
 display:grid;
 grid-template-columns:1fr;
-gap:20px;
-padding:20px;
-max-width:1000px;
+gap:18px;
+padding:18px;
+max-width:1100px;
 margin:auto;
 }
 
-@media(min-width:600px){
+@media (min-width:650px){
 .grid{
 grid-template-columns:repeat(2,1fr);
 }
 }
 
-/* CARD */
+/* VIDEO CARD */
 
 .card{
 position:relative;
-border-radius:16px;
 overflow:hidden;
+border-radius:16px;
 background:#111;
+box-shadow:0 6px 18px rgba(0,0,0,.5);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
 }
 
 .card img{
 width:100%;
 display:block;
+filter:brightness(.75) blur(1px);
+transition:.35s;
 }
 
-/* DARK GRADIENT */
+.card:hover img{
+transform:scale(1.08);
+filter:brightness(.9) blur(.3px);
+}
 
 .card::after{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(to top,rgba(0,0,0,0.8),transparent 60%);
+background:linear-gradient(
+to top,
+rgba(0,0,0,.9),
+rgba(0,0,0,.4),
+transparent
+);
 }
 
 /* PLAY BUTTON */
@@ -92,48 +131,57 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:60px;
-color:white;
-opacity:0.7;
+width:70px;
+height:70px;
+border-radius:50%;
+background:rgba(0,0,0,.55);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+z-index:5;
 }
 
 /* CAPTION */
 
 .caption{
 position:absolute;
-bottom:12px;
+bottom:0;
 left:0;
 right:0;
+padding:40px 16px 16px;
+font-size:22px;
+font-weight:800;
 text-align:center;
-font-size:26px;
-font-weight:900;
-z-index:3;
+z-index:6;
 }
 
 /* VIEWS */
 
 .views{
 position:absolute;
-bottom:60px;
-left:14px;
-background:linear-gradient(45deg,#7b2cff,#a64dff);
-padding:5px 12px;
-border-radius:18px;
-font-size:14px;
-z-index:3;
+bottom:55px;
+left:16px;
+background:#8a2be2;
+padding:4px 10px;
+border-radius:16px;
+font-size:13px;
+font-weight:bold;
+z-index:7;
 }
 
 /* DURATION */
 
 .duration{
 position:absolute;
-bottom:60px;
-right:14px;
-background:#000;
-padding:4px 8px;
-border-radius:6px;
-font-size:13px;
-z-index:3;
+bottom:55px;
+right:16px;
+background:rgba(0,0,0,.85);
+padding:3px 7px;
+border-radius:5px;
+font-size:12px;
+font-weight:bold;
+z-index:7;
 }
 
 </style>
@@ -141,131 +189,139 @@ z-index:3;
 
 <body>
 
-<div class="header">
+<div class="top">
+
 <div class="logo">StreamCams</div>
-<input class="search" placeholder="Search videos...">
+
+<div class="searchbar">
+<div class="searchbox">
+<input placeholder="Search the archive...">
+<span>🔎</span>
+</div>
+</div>
+
 </div>
 
 <div class="grid">
 
 <div class="card">
-<img src="https://i.ibb.co/DPtkR5Nf/image.jpg">
+<img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg">
 <div class="play">▶</div>
-<div class="views">👁 2.3M</div>
+<div class="views">2.3M views</div>
 <div class="duration">2:41</div>
-<div class="caption">Private Stream Leak</div>
+<div class="caption">Video N9862</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/6JZSnmJv/image.jpg">
+<img src="https://i.postimg.cc/j2cyXjfm/1766195576201-now-staytuned-latest-epstein-files-251219-1920x1080-egapt8.jpg">
 <div class="play">▶</div>
-<div class="views">👁 1.8M</div>
+<div class="views">533K views</div>
 <div class="duration">4:12</div>
-<div class="caption">Hidden Camera Clip</div>
+<div class="caption">Video N3142</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/BVZgbzwP/image.jpg">
+<img src="https://i.postimg.cc/Wz80n4rD/Andrew-Mountbatten-Windsor-013126-02-bca9884e044145a88f7cd55dd9df6492.jpg">
 <div class="play">▶</div>
-<div class="views">👁 3.1M</div>
-<div class="duration">3:05</div>
-<div class="caption">VIP Only Video</div>
+<div class="views">750K views</div>
+<div class="duration">1:56</div>
+<div class="caption">Video N7339</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/tPq4FNJp/image.jpg">
+<img src="https://i.postimg.cc/VvmjntSm/image-1771385768181.webp">
 <div class="play">▶</div>
-<div class="views">👁 980K</div>
-<div class="duration">1:52</div>
-<div class="caption">Private Bedroom Cam</div>
+<div class="views">300K views</div>
+<div class="duration">3:27</div>
+<div class="caption">Video N9044</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/Kxr6yszv/image.jpg">
+<img src="https://i.postimg.cc/ZnH6cqN1/images-(1)-(30).jpg">
 <div class="play">▶</div>
-<div class="views">👁 1.4M</div>
-<div class="duration">3:14</div>
-<div class="caption">Live Stream Capture</div>
+<div class="views">1M views</div>
+<div class="duration">4:05</div>
+<div class="caption">Video N8113</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/nsdgf2Q0/image.jpg">
+<img src="https://i.postimg.cc/3N12Bwp0/images-(1)-(31).jpg">
 <div class="play">▶</div>
-<div class="views">👁 2.9M</div>
-<div class="duration">2:55</div>
-<div class="caption">Unreleased Camera Footage</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/TxhqF77r/image.jpg">
-<div class="play">▶</div>
-<div class="views">👁 1.2M</div>
-<div class="duration">4:03</div>
-<div class="caption">Night Cam Recording</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/rG9CXrKG/image.jpg">
-<div class="play">▶</div>
-<div class="views">👁 2.7M</div>
-<div class="duration">2:34</div>
-<div class="caption">Security Feed Leak</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/rf78bcPg/image.jpg">
-<div class="play">▶</div>
-<div class="views">👁 3.4M</div>
-<div class="duration">4:44</div>
-<div class="caption">Exclusive Recording</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/Wpsh4Gk8/image.jpg">
-<div class="play">▶</div>
-<div class="views">👁 1.9M</div>
-<div class="duration">2:09</div>
-<div class="caption">Stream Archive Clip</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/5x84GfGM/image.webp">
-<div class="play">▶</div>
-<div class="views">👁 2.6M</div>
-<div class="duration">3:28</div>
-<div class="caption">Unfiltered Camera Feed</div>
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/MyymdgmR/image.jpg">
-<div class="play">▶</div>
-<div class="views">👁 1.5M</div>
+<div class="views">427K views</div>
 <div class="duration">2:18</div>
-<div class="caption">Hidden Room Camera</div>
+<div class="caption">Video N9807</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/VpSKWvcD/image.jpg">
+<img src="https://i.postimg.cc/rsMSx4Dn/images-(2)-(16).jpg">
 <div class="play">▶</div>
-<div class="views">👁 2.1M</div>
-<div class="duration">3:11</div>
-<div class="caption">Live Cam Capture</div>
+<div class="views">133K views</div>
+<div class="duration">3:49</div>
+<div class="caption">Video N8551</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/3y2BsxNH/image.jpg">
+<img src="https://i.postimg.cc/KjxnBT1C/images-(2)-(8).jpg">
 <div class="play">▶</div>
-<div class="views">👁 2.8M</div>
-<div class="duration">4:07</div>
-<div class="caption">Private Room Stream</div>
+<div class="views">655K views</div>
+<div class="duration">1:34</div>
+<div class="caption">Video N7330</div>
 </div>
 
 <div class="card">
-<img src="https://i.ibb.co/0ycTwpv1/image.jpg">
+<img src="https://i.postimg.cc/cC0Qw3vk/images-(2)-(9).jpg">
 <div class="play">▶</div>
-<div class="views">👁 3.0M</div>
+<div class="views">890K views</div>
+<div class="duration">4:28</div>
+<div class="caption">Video N1921</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/sxsp7WMw/IMG-20260308-162220.jpg">
+<div class="play">▶</div>
+<div class="views">1.2M views</div>
 <div class="duration">2:59</div>
-<div class="caption">Unreleased Live Video</div>
+<div class="caption">Video N6123</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/d3w8rCh5/IMG-20260308-162248.jpg">
+<div class="play">▶</div>
+<div class="views">840K views</div>
+<div class="duration">1:47</div>
+<div class="caption">Video N7211</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/Zn4rpNWL/IMG-20260308-162318.jpg">
+<div class="play">▶</div>
+<div class="views">1.5M views</div>
+<div class="duration">3:08</div>
+<div class="caption">Video N6512</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/d3w8rChn/IMG-20260308-162338.jpg">
+<div class="play">▶</div>
+<div class="views">3.8M views</div>
+<div class="duration">2:52</div>
+<div class="caption">Video N1103</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/L52zLPJB/IMG-20260308-162401.jpg">
+<div class="play">▶</div>
+<div class="views">2.1M views</div>
+<div class="duration">4:01</div>
+<div class="caption">Video N8834</div>
+</div>
+
+<div class="card">
+<img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
+<div class="play">▶</div>
+<div class="views">1.9M views</div>
+<div class="duration">1:29</div>
+<div class="caption">Video N7721</div>
 </div>
 
 </div>
