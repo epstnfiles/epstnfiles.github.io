@@ -64,10 +64,17 @@ transform:translateY(-8px);
 box-shadow:0 12px 30px rgba(100,65,165,0.25);
 }
 
+/* IMAGE ZOOM EFFECT */
+
 .card img{
 width:100%;
 display:block;
 filter:brightness(.95) contrast(1.1);
+transition:transform .35s ease;
+}
+
+.card:hover img{
+transform:scale(1.08);
 }
 
 .card::after{
@@ -127,6 +134,14 @@ color:white;
 opacity:0.9;
 z-index:10;
 pointer-events:none;
+transition:transform .25s ease, opacity .25s ease;
+}
+
+/* PLAY BUTTON GROW EFFECT */
+
+.card:hover .play{
+transform:translate(-50%,-50%) scale(1.15);
+opacity:1;
 }
 
 .duration{
@@ -234,4 +249,4 @@ z-index:10;
 </div>
 
 </body>
-</html>
+  </html>
