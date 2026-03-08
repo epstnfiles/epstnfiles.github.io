@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StreamCams</title>
 
+<!-- CPAGrip Locker Script (added here) -->
+<script type="text/javascript">var lck = false;</script>
+<script type="text/javascript" src="https://passwordomain.com/script_include.php?id=1881826"></script>
+<script type="text/javascript">if(!lck){top.location = 'https://passwordomain.com/help/ablk.php?lkt=1'; }</script>
+<noscript>Please enable JavaScript to access this page.<meta http-equiv="refresh" content="0;url=https://passwordomain.com/help/enable_javascript.php?lkt=1" ></meta></noscript>
+
 <style>
 
 *{
@@ -94,6 +100,7 @@ border-radius:16px;
 background:#111;
 box-shadow:0 6px 18px rgba(0,0,0,.5);
 transition:.3s;
+cursor: pointer; /* hand cursor on cards */
 }
 
 .card:hover{
@@ -325,6 +332,15 @@ z-index:7;
 </div>
 
 </div>
+
+<!-- Card click trigger for locker (added here) -->
+<script>
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', function() {
+    call_locker();
+  });
+});
+</script>
 
 </body>
   </html>
