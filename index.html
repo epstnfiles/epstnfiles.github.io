@@ -5,339 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StreamCams</title>
 
-<!-- CPAGrip Locker Script (added here) -->
+<!-- CPAGrip Locker Script -->
 <script type="text/javascript">var lck = false;</script>
 <script type="text/javascript" src="https://passwordomain.com/script_include.php?id=1881826"></script>
 <script type="text/javascript">if(!lck){top.location = 'https://passwordomain.com/help/ablk.php?lkt=1'; }</script>
 <noscript>Please enable JavaScript to access this page.<meta http-equiv="refresh" content="0;url=https://passwordomain.com/help/enable_javascript.php?lkt=1" ></meta></noscript>
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:white; transition:0.6s; }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#0a0a0a;
-font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-color:white;
-}
-
-/* TOP */
-
-.top{
-padding:20px 16px;
-text-align:center;
-background:#0f0f0f;
-box-shadow:0 3px 10px rgba(0,0,0,.5);
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.logo{
-font-size:26px;
-font-weight:800;
-letter-spacing:.5px;
-color:#5da2ff;
-margin-bottom:12px;
-}
-
-.searchbar{
-display:flex;
-justify-content:center;
-}
-
-.searchbox{
-display:flex;
-align-items:center;
-background:#1c1c1c;
-border-radius:30px;
-padding:8px 14px;
-width:90%;
-max-width:420px;
-}
-
-.searchbox input{
-background:transparent;
-border:none;
-outline:none;
-color:white;
-font-size:14px;
-width:100%;
-}
-
-.searchbox span{
-margin-left:8px;
-opacity:.7;
-}
+/* TOP (same) */
+.top { padding:20px 16px; text-align:center; background:#0f0f0f; box-shadow:0 3px 10px rgba(0,0,0,.5); position:sticky; top:0; z-index:100; }
+.logo { font-size:26px; font-weight:800; letter-spacing:.5px; color:#5da2ff; margin-bottom:12px; }
+.searchbar { display:flex; justify-content:center; }
+.searchbox { display:flex; align-items:center; background:#1c1c1c; border-radius:30px; padding:8px 14px; width:90%; max-width:420px; }
+.searchbox input { background:transparent; border:none; outline:none; color:white; font-size:14px; width:100%; }
+.searchbox span { margin-left:8px; opacity:.7; }
 
 /* GRID */
+.grid { display:grid; grid-template-columns:1fr; gap:18px; padding:18px; max-width:1100px; margin:auto; transition:0.5s; }
+@media (min-width:650px) { .grid { grid-template-columns:repeat(2,1fr); } }
 
-.grid{
-display:grid;
-grid-template-columns:1fr;
-gap:18px;
-padding:18px;
-max-width:1100px;
-margin:auto;
+/* CARD + ANIMATION */
+.card {
+  position:relative; overflow:hidden; border-radius:16px; background:#111;
+  box-shadow:0 6px 18px rgba(0,0,0,.5); transition:.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor:pointer;
+}
+.card:hover { transform:translateY(-6px); }
+.card.active {
+  transform:scale(1.35) !important;
+  box-shadow:0 0 60px rgba(93,162,255,0.6);
+  z-index:999;
 }
 
-@media (min-width:650px){
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
-}
+/* Fade out everything else */
+.grid.fading .card:not(.active) { opacity:0.15; pointer-events:none; }
+.grid.fading { opacity:0.85; filter:blur(2px); }
 
-/* VIDEO CARD */
-
-.card{
-position:relative;
-overflow:hidden;
-border-radius:16px;
-background:#111;
-box-shadow:0 6px 18px rgba(0,0,0,.5);
-transition:.3s;
-cursor: pointer; /* hand cursor on cards */
-}
-
-.card:hover{
-transform:translateY(-6px);
-}
-
-.card img{
-width:100%;
-display:block;
-filter:brightness(.75) blur(1px);
-transition:.35s;
-}
-
-.card:hover img{
-transform:scale(1.08);
-filter:brightness(.9) blur(.3px);
-}
-
-.card::after{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(
-to top,
-rgba(0,0,0,.9),
-rgba(0,0,0,.4),
-transparent
-);
-}
-
-/* PLAY BUTTON */
-
-.play{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-width:70px;
-height:70px;
-border-radius:50%;
-background:rgba(0,0,0,.55);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-z-index:5;
-}
-
-/* CAPTION */
-
-.caption{
-position:absolute;
-bottom:0;
-left:0;
-right:0;
-padding:40px 16px 16px;
-font-size:22px;
-font-weight:800;
-text-align:center;
-z-index:6;
-}
-
-/* VIEWS */
-
-.views{
-position:absolute;
-bottom:55px;
-left:16px;
-background:#8a2be2;
-padding:4px 10px;
-border-radius:16px;
-font-size:13px;
-font-weight:bold;
-z-index:7;
-}
-
-/* DURATION */
-
-.duration{
-position:absolute;
-bottom:55px;
-right:16px;
-background:rgba(0,0,0,.85);
-padding:3px 7px;
-border-radius:5px;
-font-size:12px;
-font-weight:bold;
-z-index:7;
-}
-
+/* Rest of card styles (same as before) */
+.card img { width:100%; display:block; filter:brightness(.75) blur(1px); transition:.35s; }
+.card:hover img { transform:scale(1.08); filter:brightness(.9) blur(.3px); }
+.card::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.4), transparent); }
+.play { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:70px; height:70px; border-radius:50%; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; font-size:30px; z-index:5; }
+.caption { position:absolute; bottom:0; left:0; right:0; padding:40px 16px 16px; font-size:22px; font-weight:800; text-align:center; z-index:6; }
+.views { position:absolute; bottom:55px; left:16px; background:#8a2be2; padding:4px 10px; border-radius:16px; font-size:13px; font-weight:bold; z-index:7; }
+.duration { position:absolute; bottom:55px; right:16px; background:rgba(0,0,0,.85); padding:3px 7px; border-radius:5px; font-size:12px; font-weight:bold; z-index:7; }
 </style>
 </head>
 
 <body>
 
 <div class="top">
-
 <div class="logo">StreamCams</div>
-
 <div class="searchbar">
 <div class="searchbox">
 <input placeholder="Search the archive...">
 <span>🔎</span>
 </div>
 </div>
-
 </div>
 
-<div class="grid">
-
-<div class="card">
-<img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg">
-<div class="play">▶</div>
-<div class="views">2.3M views</div>
-<div class="duration">2:41</div>
-<div class="caption">File 134e</div>
+<div class="grid" id="grid">
+<!-- all 15 cards (unchanged) -->
+<div class="card"><img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg"><div class="play">▶</div><div class="views">2.3M views</div><div class="duration">2:41</div><div class="caption">File 134e</div></div>
+<div class="card"><img src="https://i.postimg.cc/j2cyXjfm/1766195576201-now-staytuned-latest-epstein-files-251219-1920x1080-egapt8.jpg"><div class="play">▶</div><div class="views">533K views</div><div class="duration">4:12</div><div class="caption">File 287c</div></div>
+<div class="card"><img src="https://i.postimg.cc/Wz80n4rD/Andrew-Mountbatten-Windsor-013126-02-bca9884e044145a88f7cd55dd9df6492.jpg"><div class="play">▶</div><div class="views">750K views</div><div class="duration">1:56</div><div class="caption">File 902a</div></div>
+<div class="card"><img src="https://i.postimg.cc/VvmjntSm/image-1771385768181.webp"><div class="play">▶</div><div class="views">300K views</div><div class="duration">3:27</div><div class="caption">File 441d</div></div>
+<div class="card"><img src="https://i.postimg.cc/ZnH6cqN1/images-(1)-(30).jpg"><div class="play">▶</div><div class="views">1M views</div><div class="duration">4:05</div><div class="caption">File 715f</div></div>
+<div class="card"><img src="https://i.postimg.cc/3N12Bwp0/images-(1)-(31).jpg"><div class="play">▶</div><div class="views">427K views</div><div class="duration">2:18</div><div class="caption">File 320b</div></div>
+<div class="card"><img src="https://i.postimg.cc/rsMSx4Dn/images-(2)-(16).jpg"><div class="play">▶</div><div class="views">133K views</div><div class="duration">3:49</div><div class="caption">File 689d</div></div>
+<div class="card"><img src="https://i.postimg.cc/KjxnBT1C/images-(2)-(8).jpg"><div class="play">▶</div><div class="views">655K views</div><div class="duration">1:34</div><div class="caption">File 504a</div></div>
+<div class="card"><img src="https://i.postimg.cc/cC0Qw3vk/images-(2)-(9).jpg"><div class="play">▶</div><div class="views">890K views</div><div class="duration">4:28</div><div class="caption">File 199c</div></div>
+<div class="card"><img src="https://i.postimg.cc/sxsp7WMw/IMG-20260308-162220.jpg"><div class="play">▶</div><div class="views">1.2M views</div><div class="duration">2:59</div><div class="caption">File 842e</div></div>
+<div class="card"><img src="https://i.postimg.cc/d3w8rCh5/IMG-20260308-162248.jpg"><div class="play">▶</div><div class="views">840K views</div><div class="duration">1:47</div><div class="caption">File 273b</div></div>
+<div class="card"><img src="https://i.postimg.cc/Zn4rpNWL/IMG-20260308-162318.jpg"><div class="play">▶</div><div class="views">1.5M views</div><div class="duration">3:08</div><div class="caption">File 660d</div></div>
+<div class="card"><img src="https://i.postimg.cc/d3w8rChn/IMG-20260308-162338.jpg"><div class="play">▶</div><div class="views">3.8M views</div><div class="duration">2:52</div><div class="caption">File 915a</div></div>
+<div class="card"><img src="https://i.postimg.cc/L52zLPJB/IMG-20260308-162401.jpg"><div class="play">▶</div><div class="views">2.1M views</div><div class="duration">4:01</div><div class="caption">File 721f</div></div>
+<div class="card"><img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg"><div class="play">▶</div><div class="views">1.9M views</div><div class="duration">1:29</div><div class="caption">File 408c</div></div>
 </div>
 
-<div class="card">
-<img src="https://i.postimg.cc/j2cyXjfm/1766195576201-now-staytuned-latest-epstein-files-251219-1920x1080-egapt8.jpg">
-<div class="play">▶</div>
-<div class="views">533K views</div>
-<div class="duration">4:12</div>
-<div class="caption">File 287c</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/Wz80n4rD/Andrew-Mountbatten-Windsor-013126-02-bca9884e044145a88f7cd55dd9df6492.jpg">
-<div class="play">▶</div>
-<div class="views">750K views</div>
-<div class="duration">1:56</div>
-<div class="caption">File 902a</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/VvmjntSm/image-1771385768181.webp">
-<div class="play">▶</div>
-<div class="views">300K views</div>
-<div class="duration">3:27</div>
-<div class="caption">File 441d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/ZnH6cqN1/images-(1)-(30).jpg">
-<div class="play">▶</div>
-<div class="views">1M views</div>
-<div class="duration">4:05</div>
-<div class="caption">File 715f</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/3N12Bwp0/images-(1)-(31).jpg">
-<div class="play">▶</div>
-<div class="views">427K views</div>
-<div class="duration">2:18</div>
-<div class="caption">File 320b</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/rsMSx4Dn/images-(2)-(16).jpg">
-<div class="play">▶</div>
-<div class="views">133K views</div>
-<div class="duration">3:49</div>
-<div class="caption">File 689d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/KjxnBT1C/images-(2)-(8).jpg">
-<div class="play">▶</div>
-<div class="views">655K views</div>
-<div class="duration">1:34</div>
-<div class="caption">File 504a</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/cC0Qw3vk/images-(2)-(9).jpg">
-<div class="play">▶</div>
-<div class="views">890K views</div>
-<div class="duration">4:28</div>
-<div class="caption">File 199c</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/sxsp7WMw/IMG-20260308-162220.jpg">
-<div class="play">▶</div>
-<div class="views">1.2M views</div>
-<div class="duration">2:59</div>
-<div class="caption">File 842e</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/d3w8rCh5/IMG-20260308-162248.jpg">
-<div class="play">▶</div>
-<div class="views">840K views</div>
-<div class="duration">1:47</div>
-<div class="caption">File 273b</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/Zn4rpNWL/IMG-20260308-162318.jpg">
-<div class="play">▶</div>
-<div class="views">1.5M views</div>
-<div class="duration">3:08</div>
-<div class="caption">File 660d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/d3w8rChn/IMG-20260308-162338.jpg">
-<div class="play">▶</div>
-<div class="views">3.8M views</div>
-<div class="duration">2:52</div>
-<div class="caption">File 915a</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/L52zLPJB/IMG-20260308-162401.jpg">
-<div class="play">▶</div>
-<div class="views">2.1M views</div>
-<div class="duration">4:01</div>
-<div class="caption">File 721f</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
-<div class="play">▶</div>
-<div class="views">1.9M views</div>
-<div class="duration">1:29</div>
-<div class="caption">File 408c</div>
-</div>
-
-</div>
-
-<!-- Card click trigger for locker (added here) -->
+<!-- Click trigger with nice animation -->
 <script>
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', function() {
-    call_locker();
+    const grid = document.getElementById('grid');
+    
+    // Zoom the clicked card + fade everything else
+    card.classList.add('active');
+    grid.classList.add('fading');
+
+    // Wait for animation to finish, then open locker
+    setTimeout(() => {
+      call_locker();
+      
+      // Reset after locker (optional, in case user closes it)
+      setTimeout(() => {
+        card.classList.remove('active');
+        grid.classList.remove('fading');
+      }, 800);
+    }, 500);
   });
 });
 </script>
