@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Trending Videos</title>
 
 <style>
+
 body{
-font-family: Arial;
-background:#111;
-color:white;
+background:#000;
+font-family:Arial;
 margin:0;
 }
 
 .header{
-background:#ff0000;
-padding:15px;
-font-size:20px;
+background:red;
+color:white;
 text-align:center;
+padding:12px;
+font-size:22px;
+font-weight:bold;
 }
 
 .grid{
 display:grid;
-grid-template-columns:1fr 1fr;
+grid-template-columns:repeat(2,1fr);
 gap:10px;
 padding:10px;
 }
 
-.video{
-background:#222;
+.card{
+background:#111;
 border-radius:6px;
 overflow:hidden;
-cursor:pointer;
 }
 
-.video img{
+.card img{
 width:100%;
+display:block;
 }
 
-.title{
+.caption{
+color:white;
 padding:8px;
 font-size:14px;
 }
@@ -45,10 +47,9 @@ font-size:14px;
 .views{
 color:#aaa;
 font-size:12px;
-padding:0 8px 8px;
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -57,43 +58,57 @@ padding:0 8px 8px;
 
 <div class="grid">
 
-<div class="video" onclick="showLocker()">
-<img src="https://picsum.photos/400/250?1">
-<div class="title">Private Stream Leak</div>
-<div class="views">2.3M views</div>
+<div class="card">
+<img src="https://picsum.photos/400/200?1">
+<div class="caption">Private Stream Leak<br><span class="views">2.3M views</span></div>
 </div>
 
-<div class="video" onclick="showLocker()">
-<img src="https://picsum.photos/400/250?2">
-<div class="title">Hidden Camera Clip</div>
-<div class="views">1.8M views</div>
+<div class="card">
+<img src="https://picsum.photos/400/200?2">
+<div class="caption">Hidden Camera Clip<br><span class="views">1.8M views</span></div>
 </div>
 
-<div class="video" onclick="showLocker()">
-<img src="https://picsum.photos/400/250?3">
-<div class="title">VIP Only Video</div>
-<div class="views">3.1M views</div>
+<div class="card">
+<img src="https://picsum.photos/400/200?3">
+<div class="caption">VIP Only Video<br><span class="views">3.1M views</span></div>
 </div>
 
-<div class="video" onclick="showLocker()">
-<img src="https://picsum.photos/400/250?4">
-<div class="title">Exclusive Footage</div>
-<div class="views">980K views</div>
+<div class="card">
+<img src="https://picsum.photos/400/200?4">
+<div class="caption">Exclusive Footage<br><span class="views">980K views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?5">
+<div class="caption">Stream Gone Wrong<br><span class="views">1.1M views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?6">
+<div class="caption">Accidental Live Leak<br><span class="views">2.7M views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?7">
+<div class="caption">VIP Camera Clip<br><span class="views">1.4M views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?8">
+<div class="caption">Private Recording<br><span class="views">900K views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?9">
+<div class="caption">Unreleased Video<br><span class="views">1.9M views</span></div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/400/200?10">
+<div class="caption">Secret Footage<br><span class="views">2.2M views</span></div>
 </div>
 
 </div>
-
-<script>
-
-function showLocker(){
-
-// paste your CPA locker script here
-
-alert("Content locked. Complete offer to watch.");
-
-}
-
-</script>
 
 </body>
-</html>
+  </html>
