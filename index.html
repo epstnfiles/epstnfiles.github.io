@@ -18,12 +18,6 @@ background:#0a0a0a;
 color:#e0e0e0;
 font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 min-height:100vh;
-animation:fadein .6s ease;
-}
-
-@keyframes fadein{
-from{opacity:0;}
-to{opacity:1;}
 }
 
 .header{
@@ -67,8 +61,7 @@ transition:all .3s ease;
 
 .card:hover{
 transform:translateY(-8px);
-box-shadow:0 12px 30px rgba(100,65,165,0.25),
-0 0 20px rgba(138,43,226,0.5);
+box-shadow:0 12px 30px rgba(100,65,165,0.25);
 }
 
 .card img{
@@ -143,14 +136,22 @@ font-weight:bold;
 z-index:10;
 }
 
+/* NEW PLAY BUTTON */
+
 .play{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:60px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:rgba(0,0,0,0.55);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
 color:white;
-opacity:.9;
 z-index:10;
 pointer-events:none;
 transition:transform .25s ease;
@@ -169,87 +170,37 @@ transform:translate(-50%,-50%) scale(1.15);
 
 <div class="grid">
 
-<div class="card">
-<img src="https://picsum.photos/400/300?1">
-<div class="play">▶</div>
-<div class="duration">2:41</div>
-<div class="caption">Private Stream Leak</div>
-<div class="views">2.3M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?1"><div class="play">▶</div><div class="duration">2:41</div><div class="caption">Private Stream Leak</div><div class="views">2.3M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?2">
-<div class="play">▶</div>
-<div class="duration">4:12</div>
-<div class="caption">Hidden Camera Clip</div>
-<div class="views">1.8M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?2"><div class="play">▶</div><div class="duration">4:12</div><div class="caption">Hidden Camera Clip</div><div class="views">1.8M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?3">
-<div class="play">▶</div>
-<div class="duration">1:56</div>
-<div class="caption">VIP Only Video</div>
-<div class="views">3.1M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?3"><div class="play">▶</div><div class="duration">1:56</div><div class="caption">VIP Only Video</div><div class="views">3.1M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?4">
-<div class="play">▶</div>
-<div class="duration">3:27</div>
-<div class="caption">Exclusive Footage</div>
-<div class="views">980K views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?4"><div class="play">▶</div><div class="duration">3:27</div><div class="caption">Exclusive Footage</div><div class="views">980K views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?5">
-<div class="play">▶</div>
-<div class="duration">4:05</div>
-<div class="caption">Stream Gone Wrong</div>
-<div class="views">1.1M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?5"><div class="play">▶</div><div class="duration">4:05</div><div class="caption">Stream Gone Wrong</div><div class="views">1.1M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?6">
-<div class="play">▶</div>
-<div class="duration">2:18</div>
-<div class="caption">Influencer Private Clip</div>
-<div class="views">2.7M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?6"><div class="play">▶</div><div class="duration">2:18</div><div class="caption">Influencer Private Clip</div><div class="views">2.7M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?7">
-<div class="play">▶</div>
-<div class="duration">3:49</div>
-<div class="caption">VIP Room Footage</div>
-<div class="views">1.4M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?7"><div class="play">▶</div><div class="duration">3:49</div><div class="caption">VIP Room Footage</div><div class="views">1.4M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?8">
-<div class="play">▶</div>
-<div class="duration">1:34</div>
-<div class="caption">Stream Accident</div>
-<div class="views">2.0M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?8"><div class="play">▶</div><div class="duration">1:34</div><div class="caption">Stream Accident</div><div class="views">2.0M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?9">
-<div class="play">▶</div>
-<div class="duration">4:28</div>
-<div class="caption">Deleted Broadcast</div>
-<div class="views">1.9M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?9"><div class="play">▶</div><div class="duration">4:28</div><div class="caption">Deleted Broadcast</div><div class="views">1.9M views</div></div>
 
-<div class="card">
-<img src="https://picsum.photos/400/300?10">
-<div class="play">▶</div>
-<div class="duration">2:59</div>
-<div class="caption">Exclusive Fan Leak</div>
-<div class="views">3.4M views</div>
-</div>
+<div class="card"><img src="https://picsum.photos/400/300?10"><div class="play">▶</div><div class="duration">2:59</div><div class="caption">Exclusive Fan Leak</div><div class="views">3.4M views</div></div>
+
+<div class="card"><img src="https://picsum.photos/400/300?11"><div class="play">▶</div><div class="duration">1:47</div><div class="caption">Late Night Camera</div><div class="views">2.6M views</div></div>
+
+<div class="card"><img src="https://picsum.photos/400/300?12"><div class="play">▶</div><div class="duration">3:08</div><div class="caption">Camera Left Recording</div><div class="views">1.5M views</div></div>
+
+<div class="card"><img src="https://picsum.photos/400/300?13"><div class="play">▶</div><div class="duration">2:52</div><div class="caption">VIP Lounge Footage</div><div class="views">3.8M views</div></div>
+
+<div class="card"><img src="https://picsum.photos/400/300?14"><div class="play">▶</div><div class="duration">4:01</div><div class="caption">Private Security Clip</div><div class="views">2.1M views</div></div>
+
+<div class="card"><img src="https://picsum.photos/400/300?15"><div class="play">▶</div><div class="duration">1:29</div><div class="caption">Deleted Archive Video</div><div class="views">1.9M views</div></div>
 
 </div>
 
 </body>
-                               </html>
+  </html>
