@@ -19,6 +19,14 @@ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
 color:white;
 }
 
+/* LINKS */
+
+a{
+text-decoration:none;
+color:inherit;
+display:block;
+}
+
 /* TOP */
 
 .top{
@@ -63,11 +71,6 @@ font-size:14px;
 width:100%;
 }
 
-.searchbox span{
-margin-left:8px;
-opacity:.7;
-}
-
 /* GRID */
 
 .grid{
@@ -93,24 +96,20 @@ overflow:hidden;
 border-radius:16px;
 background:#111;
 box-shadow:0 6px 18px rgba(0,0,0,.5);
-transition:.3s;
+transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .card:hover{
 transform:translateY(-6px);
+box-shadow:0 12px 28px rgba(0,0,0,.7);
 }
 
 .card img{
 width:100%;
 display:block;
-filter:brightness(.75) blur(1px);
-transition:.35s;
 }
 
-.card:hover img{
-transform:scale(1.08);
-filter:brightness(.9) blur(.3px);
-}
+/* GRADIENT */
 
 .card::after{
 content:"";
@@ -135,10 +134,12 @@ width:70px;
 height:70px;
 border-radius:50%;
 background:rgba(0,0,0,.55);
+backdrop-filter:blur(4px);
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:30px;
+font-size:28px;
+color:white;
 z-index:5;
 }
 
@@ -196,7 +197,6 @@ z-index:7;
 <div class="searchbar">
 <div class="searchbox">
 <input placeholder="Search the archive...">
-<span>🔎</span>
 </div>
 </div>
 
@@ -204,6 +204,7 @@ z-index:7;
 
 <div class="grid">
 
+<a href="#">
 <div class="card">
 <img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg">
 <div class="play">▶</div>
@@ -211,7 +212,9 @@ z-index:7;
 <div class="duration">2:41</div>
 <div class="caption">File 134e</div>
 </div>
+</a>
 
+<a href="#">
 <div class="card">
 <img src="https://i.postimg.cc/j2cyXjfm/1766195576201-now-staytuned-latest-epstein-files-251219-1920x1080-egapt8.jpg">
 <div class="play">▶</div>
@@ -219,7 +222,9 @@ z-index:7;
 <div class="duration">4:12</div>
 <div class="caption">File 287c</div>
 </div>
+</a>
 
+<a href="#">
 <div class="card">
 <img src="https://i.postimg.cc/Wz80n4rD/Andrew-Mountbatten-Windsor-013126-02-bca9884e044145a88f7cd55dd9df6492.jpg">
 <div class="play">▶</div>
@@ -227,104 +232,9 @@ z-index:7;
 <div class="duration">1:56</div>
 <div class="caption">File 902a</div>
 </div>
-
-<div class="card">
-<img src="https://i.postimg.cc/VvmjntSm/image-1771385768181.webp">
-<div class="play">▶</div>
-<div class="views">300K views</div>
-<div class="duration">3:27</div>
-<div class="caption">File 441d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/ZnH6cqN1/images-(1)-(30).jpg">
-<div class="play">▶</div>
-<div class="views">1M views</div>
-<div class="duration">4:05</div>
-<div class="caption">File 715f</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/3N12Bwp0/images-(1)-(31).jpg">
-<div class="play">▶</div>
-<div class="views">427K views</div>
-<div class="duration">2:18</div>
-<div class="caption">File 320b</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/rsMSx4Dn/images-(2)-(16).jpg">
-<div class="play">▶</div>
-<div class="views">133K views</div>
-<div class="duration">3:49</div>
-<div class="caption">File 689d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/KjxnBT1C/images-(2)-(8).jpg">
-<div class="play">▶</div>
-<div class="views">655K views</div>
-<div class="duration">1:34</div>
-<div class="caption">File 504a</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/cC0Qw3vk/images-(2)-(9).jpg">
-<div class="play">▶</div>
-<div class="views">890K views</div>
-<div class="duration">4:28</div>
-<div class="caption">File 199c</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/sxsp7WMw/IMG-20260308-162220.jpg">
-<div class="play">▶</div>
-<div class="views">1.2M views</div>
-<div class="duration">2:59</div>
-<div class="caption">File 842e</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/d3w8rCh5/IMG-20260308-162248.jpg">
-<div class="play">▶</div>
-<div class="views">840K views</div>
-<div class="duration">1:47</div>
-<div class="caption">File 273b</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/Zn4rpNWL/IMG-20260308-162318.jpg">
-<div class="play">▶</div>
-<div class="views">1.5M views</div>
-<div class="duration">3:08</div>
-<div class="caption">File 660d</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/d3w8rChn/IMG-20260308-162338.jpg">
-<div class="play">▶</div>
-<div class="views">3.8M views</div>
-<div class="duration">2:52</div>
-<div class="caption">File 915a</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/L52zLPJB/IMG-20260308-162401.jpg">
-<div class="play">▶</div>
-<div class="views">2.1M views</div>
-<div class="duration">4:01</div>
-<div class="caption">File 721f</div>
-</div>
-
-<div class="card">
-<img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
-<div class="play">▶</div>
-<div class="views">1.9M views</div>
-<div class="duration">1:29</div>
-<div class="caption">File 408c</div>
-</div>
+</a>
 
 </div>
 
 </body>
-</html>
+  </html>
