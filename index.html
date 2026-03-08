@@ -1,123 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Trending Videos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Leaks 🔥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
+        body {
+            background: #0a0a0a;
+            color: #eee;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            padding-bottom: 100px; /* space for fixed button */
+        }
 
-body{
-background:#000;
-font-family:Arial;
-margin:0;
-}
+        .header {
+            background: linear-gradient(90deg, #c8102e, #ff1744);
+            color: white;
+            text-align: center;
+            padding: 18px;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.header{
-background:red;
-color:white;
-text-align:center;
-padding:12px;
-font-size:22px;
-font-weight:bold;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:1fr;
-gap:10px;
-padding:10px;
-}
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-.card{
-background:#111;
-border-radius:6px;
-overflow:hidden;
-}
+        .card {
+            background: #111;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            transition: all 0.25s ease;
+        }
 
-.card img{
-width:100%;
-display:block;
-}
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(255, 23, 68, 0.25);
+        }
 
-.caption{
-position:relative;
-color:white;
-padding:6px 10px;
-font-size:22px;
-font-weight:bold;
-text-align:center;
-background:#000;
-line-height:1.2;
-}
+        .card img {
+            width: 100%;
+            display: block;
+            filter: brightness(0.88) contrast(1.05);
+        }
 
-.views{
-position:absolute;
-left:10px;
-bottom:6px;
-color:white;
-font-size:16px;
-opacity:0.9;
-}
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            pointer-events: none;
+        }
 
-</style>
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 16px 16px;
+            font-size: 26px;
+            font-weight: 900;
+            text-align: center;
+            color: white;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.9);
+            line-height: 1.1;
+        }
+
+        .views {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(255,23,68,0.85);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .views::before {
+            content: "👁️ ";
+            margin-right: 4px;
+        }
+
+        .unlock-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #ff1744, #c8102e);
+            color: white;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255,23,68,0.5);
+            z-index: 200;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .unlock-btn:hover {
+            transform: translateX(-50%) scale(1.08);
+            box-shadow: 0 15px 40px rgba(255,23,68,0.7);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">Trending positionon</div>
+    <div class="header">TRENDING LEAKS 🔥</div>
 
-<div class="grid">
+    <div class="grid">
 
-<div class="card">
-<img src="https://picsum.photos/400/200?1">
-<div class="caption">Private Stream Leak<br><span class="views">2.3M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?1" alt="">
+            <div class="caption">Private Stream Leak</div>
+            <div class="views">2.3M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?2">
-<div class="caption">Hidden Camera Clip<br><span class="views">1.8M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?2" alt="">
+            <div class="caption">Hidden Camera Clip</div>
+            <div class="views">1.8M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?3">
-<div class="caption">VIP Only Video<br><span class="views">3.1M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?3" alt="">
+            <div class="caption">VIP Only Video</div>
+            <div class="views">3.1M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?4">
-<div class="caption">Exclusive Footage<br><span class="views">980K views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?4" alt="">
+            <div class="caption">Exclusive Footage</div>
+            <div class="views">980K views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?5">
-<div class="caption">Stream Gone Wrong<br><span class="views">1.1M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?5" alt="">
+            <div class="caption">Stream Gone Wrong</div>
+            <div class="views">1.1M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?6">
-<div class="caption">Accidental Live Leak<br><span class="views">2.7M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?6" alt="">
+            <div class="caption">Accidental Live Leak</div>
+            <div class="views">2.7M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?7">
-<div class="caption">VIP Camera Clip<br><span class="views">1.4M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?7" alt="">
+            <div class="caption">VIP Camera Clip</div>
+            <div class="views">1.4M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?8">
-<div class="caption">Private Recording<br><span class="views">900K views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?8" alt="">
+            <div class="caption">Private Recording</div>
+            <div class="views">900K views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?9">
-<div class="caption">Unreleased Video<br><span class="views">1.9M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?9" alt="">
+            <div class="caption">Unreleased Video</div>
+            <div class="views">1.9M views</div>
+        </div>
 
-<div class="card">
-<img src="https://picsum.photos/400/200?10">
-<div class="caption">Secret Footage<br><span class="views">2.2M views</span></div>
-</div>
+        <div class="card">
+            <img src="https://picsum.photos/400/300?10" alt="">
+            <div class="caption">Secret Footage</div>
+            <div class="views">2.2M views</div>
+        </div>
 
-</div>
+    </div>
+
+    <a href="#" class="unlock-btn">UNLOCK ALL NOW →</a>
 
 </body>
-  </html>
+                                                   </html>
