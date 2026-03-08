@@ -19,7 +19,7 @@
         }
 
         .header {
-            background: linear-gradient(90deg, #1a1f71, #2c3e8c); /* deep navy/blue */
+            background: linear-gradient(90deg, #1a1f71, #2c3e8c);
             color: white;
             text-align: center;
             padding: 20px;
@@ -55,24 +55,25 @@
             position: relative;
             box-shadow: 0 6px 18px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
+            min-height: 280px; /* prevents squish on short images */
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(100, 65, 165, 0.25); /* soft purple glow */
+            box-shadow: 0 12px 30px rgba(100, 65, 165, 0.25);
         }
 
         .card img {
             width: 100%;
             display: block;
-            filter: brightness(0.9) contrast(1.08);
+            filter: brightness(0.95) contrast(1.1); /* sharper, less dim */
         }
 
         .card::after {
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 60%, transparent 100%);
             pointer-events: none;
         }
 
@@ -81,31 +82,32 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 28px 16px 16px;
-            font-size: 26px;
+            padding: 100px 16px 20px; /* more bottom padding to lift text */
+            font-size: 24px;
             font-weight: 900;
             text-align: center;
-            color: white;
-            text-shadow: 0 3px 12px rgba(0,0,0,0.85);
-            line-height: 1.15;
+            color: #ffffff;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.8); /* sharper shadow, less blur */
+            line-height: 1.2;
         }
 
         .views {
             position: absolute;
-            bottom: 14px;
-            left: 14px;
-            background: rgba(138, 43, 226, 0.75); /* soft purple */
+            bottom: 70px; /* moved higher so it sits above caption text */
+            left: 16px;
+            background: rgba(138, 43, 226, 0.9);
             color: white;
-            font-size: 17px;
+            font-size: 15px;
             font-weight: bold;
-            padding: 6px 16px;
-            border-radius: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            z-index: 10;
         }
 
         .views::before {
             content: "👁️ ";
-            margin-right: 5px;
+            margin-right: 4px;
         }
     </style>
 </head>
@@ -145,37 +147,9 @@
             <div class="views">1.1M views</div>
         </div>
 
-        <div class="card">
-            <img src="https://picsum.photos/400/300?6" alt="">
-            <div class="caption">Accidental Live Leak</div>
-            <div class="views">2.7M views</div>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/400/300?7" alt="">
-            <div class="caption">VIP Camera Clip</div>
-            <div class="views">1.4M views</div>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/400/300?8" alt="">
-            <div class="caption">Private Recording</div>
-            <div class="views">900K views</div>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/400/300?9" alt="">
-            <div class="caption">Unreleased Video</div>
-            <div class="views">1.9M views</div>
-        </div>
-
-        <div class="card">
-            <img src="https://picsum.photos/400/300?10" alt="">
-            <div class="caption">Secret Footage</div>
-            <div class="views">2.2M views</div>
-        </div>
+        <!-- add the rest of your cards here the same way -->
 
     </div>
 
 </body>
-    </html>
+</html>
