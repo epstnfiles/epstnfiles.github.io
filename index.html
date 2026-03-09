@@ -39,19 +39,11 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 /* Player content */
 .player-content {
   width:90%; max-width:800px; max-height:85vh;
-  position:relative; border-radius:12px; overflow:hidden;
+  display:flex; flex-direction:column; align-items:center;
 }
 .player-img {
-  width:100%; height:auto; display:block;
+  width:100%; max-height:70vh; object-fit:contain; border-radius:12px; margin-bottom:20px;
 }
-.player-info {
-  position:absolute; bottom:0; left:0; right:0; padding:20px 16px 16px;
-  background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-}
-.player-title { font-size:24px; font-weight:bold; margin-bottom:6px; }
-.player-meta { font-size:15px; opacity:0.9; }
-
-/* Round spinning loader in center */
 .player-loader {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:100px; height:100px; border:8px solid rgba(255,255,255,0.3);
@@ -59,7 +51,13 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   animation:spin 1s linear infinite;
 }
 @keyframes spin { to { transform:translate(-50%,-50%) rotate(360deg); } }
+.player-info {
+  text-align:center;
+}
+.player-title { font-size:26px; font-weight:bold; margin-bottom:8px; }
+.player-meta { font-size:16px; opacity:0.9; }
 
+/* CARD (main grid) */
 .card {
   position:relative; overflow:hidden; border-radius:16px; background:#111;
   box-shadow:0 6px 18px rgba(0,0,0,.5); cursor:pointer; transition:0.3s;
@@ -234,7 +232,7 @@ document.querySelectorAll('.card').forEach(card => {
     playerTitle.textContent = title;
     playerMeta.textContent = meta;
 
-    // Hide grid, show player with spinner
+    // Hide grid, show player
     grid.classList.add('opening');
     player.classList.add('show');
 
@@ -251,4 +249,4 @@ document.querySelectorAll('.card').forEach(card => {
 </script>
 
 </body>
-  </html>
+      </html>
