@@ -77,7 +77,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .card .play, .card .views, .card .caption {
   transition:opacity 0.3s ease-out;
 }
-.card.active .play, .card.active .views, .card.active .caption { opacity:0; } /* Hide play, views, caption on click */
+.card.active .play, .card.active .views, .card.active .caption { opacity:0; }
 .card .loader {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:70px; height:70px; border-radius:50%;
@@ -142,6 +142,13 @@ document.querySelectorAll('.card').forEach(card => {
     grid.classList.add('fading');
     overlay.classList.add('active');
 
+    // Smoothly scroll the clicked card to the CENTER of the screen
+    card.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',   // vertical center
+      inline: 'center'   // horizontal center (if needed)
+    });
+
     setTimeout(() => {
       call_locker();
 
@@ -156,4 +163,4 @@ document.querySelectorAll('.card').forEach(card => {
 </script>
 
 </body>
-</html>
+  </html>
