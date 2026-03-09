@@ -142,11 +142,11 @@ document.querySelectorAll('.card').forEach(card => {
     grid.classList.add('fading');
     overlay.classList.add('active');
 
-    // Smoothly scroll the clicked card to the CENTER of the screen
+    // Smooth scroll to center the clicked card
     card.scrollIntoView({
       behavior: 'smooth',
       block: 'center',   // vertical center
-      inline: 'center'   // horizontal center (if needed)
+      inline: 'center'   // horizontal center
     });
 
     setTimeout(() => {
