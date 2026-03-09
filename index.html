@@ -21,11 +21,11 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   font-size:32px; 
   font-weight:900; 
   letter-spacing:1.5px; 
-  color:#a020f0; 
+  color:#a020f0; /* brighter purple - vivid & pops more */
   margin-bottom:16px; 
   text-transform:uppercase; 
   font-family:'Inter', system-ui, -apple-system, sans-serif;
-  text-shadow:0 2px 12px rgba(160,32,240,0.6);
+  text-shadow:0 2px 12px rgba(160,32,240,0.6); /* stronger glow for designer feel */
 }
 .searchbar { display:flex; justify-content:center; }
 .searchbox { 
@@ -71,7 +71,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .card:hover { transform:translateY(-6px); }
 .card.active {
   transform:scale(1.18) !important;
-  box-shadow:0 0 80px rgba(160,32,240,0.85);
+  box-shadow:0 0 80px rgba(160,32,240,0.85); /* glow matches brighter purple */
   z-index:9999 !important;
 }
 .card .play {
@@ -85,7 +85,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:70px; height:70px; border-radius:50%;
   border:6px solid rgba(255,255,255,0.25);
-  border-top:6px solid #a020f0;
+  border-top:6px solid #a020f0; /* matches brighter purple */
   animation:spin 1s linear infinite;
   opacity:0; transition:opacity 0.4s;
   z-index:5;
@@ -100,21 +100,6 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .duration { position:absolute; bottom:55px; right:16px; background:rgba(0,0,0,.85); padding:3px 7px; border-radius:5px; font-size:12px; font-weight:bold; z-index:7; }
 
 @media (min-width:650px) { .grid { grid-template-columns:repeat(2,1fr); } }
-
-/* Incomplete message */
-#incomplete-msg {
-  position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center;
-  z-index:9998; color:white; text-align:center; flex-direction:column;
-}
-#incomplete-msg.show { display:flex; }
-#incomplete-msg h2 { font-size:28px; margin-bottom:20px; color:#a020f0; text-shadow:0 2px 10px rgba(160,32,240,0.6); }
-#incomplete-msg button {
-  background:#a020f0; color:white; border:none; padding:16px 40px;
-  font-size:20px; font-weight:bold; border-radius:50px; cursor:pointer;
-  box-shadow:0 0 20px rgba(160,32,240,0.7); transition:0.3s;
-}
-#incomplete-msg button:hover { transform:scale(1.05); box-shadow:0 0 30px rgba(160,32,240,0.9); }
 </style>
 </head>
 
@@ -131,11 +116,6 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 </div>
 
 <div id="fade-overlay"></div>
-
-<div id="incomplete-msg">
-  <h2>You did not complete an offer</h2>
-  <button id="retry-btn">Complete Offer</button>
-</div>
 
 <div class="grid" id="grid">
   <div class="card"><img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg"><div class="play">▶</div><div class="loader"></div><div class="views">2.3M views</div><div class="duration">2:41</div><div class="caption">File 134e</div></div>
@@ -155,18 +135,10 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   <div class="card"><img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg"><div class="play">▶</div><div class="loader"></div><div class="views">1.9M views</div><div class="duration">1:29</div><div class="caption">File 408c</div></div>
 </div>
 
+<!-- Animation trigger -->
 <script>
-// Auto-trigger locker in new tab if ?unlock=1
-if (window.location.search.includes('unlock=1')) {
-  setTimeout(call_locker, 500);
-}
-
-let activeCard = null;
-
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', function() {
-    activeCard = card;
-
     const grid = document.getElementById('grid');
     const overlay = document.getElementById('fade-overlay');
 
@@ -175,26 +147,15 @@ document.querySelectorAll('.card').forEach(card => {
     overlay.classList.add('active');
 
     setTimeout(() => {
-      // Open new tab with unlock param
-      window.open(window.location.pathname + '?unlock=1', '_blank');
+      call_locker();
 
-      // Show message on main tab
-      document.getElementById('incomplete-msg').classList.add('show');
-
-      // Reset animation after delay
       setTimeout(() => {
         card.classList.remove('active');
         grid.classList.remove('fading');
         overlay.classList.remove('active');
       }, 30000);
-    }, 1000); // 1 second animation
+    }, 1500);
   });
-});
-
-// Retry button opens new tab again
-document.getElementById('retry-btn').addEventListener('click', function() {
-  window.open(window.location.pathname + '?unlock=1', '_blank');
-  document.getElementById('incomplete-msg').classList.remove('show');
 });
 </script>
 
