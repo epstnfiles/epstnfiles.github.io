@@ -21,11 +21,11 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   font-size:32px; 
   font-weight:900; 
   letter-spacing:1.5px; 
-  color:#a020f0; /* brighter purple - vivid & pops more */
+  color:#a020f0; 
   margin-bottom:16px; 
   text-transform:uppercase; 
   font-family:'Inter', system-ui, -apple-system, sans-serif;
-  text-shadow:0 2px 12px rgba(160,32,240,0.6); /* stronger glow for designer feel */
+  text-shadow:0 2px 12px rgba(160,32,240,0.6);
 }
 .searchbar { display:flex; justify-content:center; }
 .searchbox { 
@@ -60,7 +60,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   background:#0a0a0a; opacity:0; pointer-events:none; z-index:990; 
   transition:opacity 0.5s;
 }
-#fade-overlay.active { opacity:0.85; pointer-events:all; }
+#fade-overlay.active { opacity:0.92; pointer-events:all; }
 
 /* CARD */
 .card {
@@ -71,7 +71,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .card:hover { transform:translateY(-6px); }
 .card.active {
   transform:scale(1.18) !important;
-  box-shadow:0 0 80px rgba(160,32,240,0.85); /* glow matches brighter purple */
+  box-shadow:0 0 80px rgba(160,32,240,0.85);
   z-index:9999 !important;
 }
 .card .play {
@@ -85,7 +85,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:70px; height:70px; border-radius:50%;
   border:6px solid rgba(255,255,255,0.25);
-  border-top:6px solid #a020f0; /* matches brighter purple */
+  border-top:6px solid #a020f0;
   animation:spin 1s linear infinite;
   opacity:0; transition:opacity 0.4s;
   z-index:5;
@@ -135,7 +135,6 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   <div class="card"><img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg"><div class="play">▶</div><div class="loader"></div><div class="views">1.9M views</div><div class="duration">1:29</div><div class="caption">File 408c</div></div>
 </div>
 
-<!-- Animation trigger -->
 <script>
 document.querySelectorAll('.card').forEach(card => {
   card.addEventListener('click', function() {
