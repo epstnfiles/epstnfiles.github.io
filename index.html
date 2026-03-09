@@ -60,7 +60,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   background:#0a0a0a; opacity:0; pointer-events:none; z-index:990; 
   transition:opacity 0.5s;
 }
-#fade-overlay.active { opacity:0.99; pointer-events:all; }
+#fade-overlay.active { opacity:0.92; pointer-events:all; }
 
 /* CARD */
 .card {
@@ -74,13 +74,10 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
   box-shadow:0 0 80px rgba(160,32,240,0.85);
   z-index:9999 !important;
 }
-.card .play {
-  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-  width:70px; height:70px; border-radius:50%; background:rgba(0,0,0,.55);
-  display:flex; align-items:center; justify-content:center; font-size:30px; z-index:5;
+.card .play, .card .views, .card .caption {
   transition:opacity 0.3s ease-out;
 }
-.card.active .play { opacity:0; }
+.card.active .play, .card.active .views, .card.active .caption { opacity:0; } /* Hide play, views, caption on click */
 .card .loader {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:70px; height:70px; border-radius:50%;
@@ -159,4 +156,4 @@ document.querySelectorAll('.card').forEach(card => {
 </script>
 
 </body>
-  </html>
+</html>
