@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StreamCams</title>
+<title>Unreleased Files</title>
 
 <!-- CPAGrip Locker Script -->
 <script type="text/javascript">var lck = false;</script>
@@ -17,7 +17,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 
 /* TOP */
 .top { padding:20px 16px; text-align:center; background:#0f0f0f; box-shadow:0 3px 10px rgba(0,0,0,.5); position:sticky; top:0; z-index:100; }
-.logo { font-size:26px; font-weight:800; letter-spacing:.5px; color:#5da2ff; margin-bottom:12px; }
+.logo { font-size:26px; font-weight:800; letter-spacing:.5px; color:#8a2be2; margin-bottom:12px; } /* Changed color to purple */
 .searchbar { display:flex; justify-content:center; }
 .searchbox { display:flex; align-items:center; background:#1c1c1c; border-radius:30px; padding:8px 14px; width:90%; max-width:420px; }
 .searchbox input { background:transparent; border:none; outline:none; color:white; font-size:14px; width:100%; }
@@ -76,13 +76,15 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .caption { position:absolute; bottom:0; left:0; right:0; padding:40px 16px 16px; font-size:22px; font-weight:800; text-align:center; z-index:6; }
 .views { position:absolute; bottom:55px; left:16px; background:#8a2be2; padding:4px 10px; border-radius:16px; font-size:13px; font-weight:bold; z-index:7; }
 .duration { position:absolute; bottom:55px; right:16px; background:rgba(0,0,0,.85); padding:3px 7px; border-radius:5px; font-size:12px; font-weight:bold; z-index:7; }
+
+@media (min-width:650px) { .grid { grid-template-columns:repeat(2,1fr); } }
 </style>
 </head>
 
 <body>
 
 <div class="top">
-<div class="logo">StreamCams</div>
+<div class="logo">Unreleased files</div> <!-- Changed text here -->
 <div class="searchbar">
 <div class="searchbox">
 <input placeholder="Search the archive...">
@@ -127,13 +129,12 @@ document.querySelectorAll('.card').forEach(card => {
     setTimeout(() => {
       call_locker();
 
-      // Reset AFTER user closes offerwall (we can't detect close, so reset after delay or manually)
-      // For now: reset after 30s or when you refresh — adjust if you want
+      // Reset AFTER user closes offerwall (long delay so loader stays during offerwall)
       setTimeout(() => {
         card.classList.remove('active');
         grid.classList.remove('fading');
         overlay.classList.remove('active');
-      }, 30000); // 30 seconds - change to longer if needed
+      }, 30000); // 30 seconds - adjust if needed
     }, 1500);
   });
 });
