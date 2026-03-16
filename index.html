@@ -100,17 +100,17 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 .card:hover img { filter:brightness(.9) blur(.3px); }
 .card::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.4), transparent); }
 
-/* Bottom metadata bar (views + duration at bottom) */
+/* Bottom metadata bar - views and duration at bottom */
 .card-bottom {
   position:relative; padding:12px 16px; background:rgba(0,0,0,0.7);
-  display:flex; justify-content:space-between; align-items:center; font-size:13px; color:white; z-index:7;
+  display:flex; justify-content:space-between; align-items:center; font-size:14px; color:white; z-index:7;
 }
 .card-bottom .views { font-weight:bold; }
-.card-bottom .duration { background:rgba(0,0,0,0.8); padding:3px 8px; border-radius:5px; }
+.card-bottom .duration { background:rgba(0,0,0,0.8); padding:4px 10px; border-radius:6px; font-weight:bold; }
 
-/* Caption (below metadata) */
+/* Caption below metadata */
 .caption { 
-  position:relative; padding:8px 16px 16px; font-size:20px; font-weight:800; text-align:center; z-index:6;
+  position:relative; padding:10px 16px 16px; font-size:22px; font-weight:800; text-align:center; z-index:6;
   background:rgba(0,0,0,0.7); 
 }
 
@@ -368,4 +368,4 @@ document.querySelectorAll('.card').forEach(card => {
 </script>
 
 </body>
-      </html>
+  </html>
