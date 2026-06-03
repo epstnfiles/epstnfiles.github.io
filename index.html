@@ -5,11 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unreleased Files</title>
 
-<!-- CPAGrip Locker Script -->
-<script type="text/javascript">var lck = false;</script>
-<script type="text/javascript" src="https://passwordomain.com/script_include.php?id=1881826"></script>
-<script type="text/javascript">if(!lck){top.location = 'https://passwordomain.com/help/ablk.php?lkt=1'; }</script>
-<noscript>Please enable JavaScript to access this page.<meta http-equiv="refresh" content="0;url=https://passwordomain.com/help/enable_javascript.php?lkt=1" ></meta></noscript>
+<!-- New CPAlead Offerwall -->
+<script type='text/javascript' src='https://www.mobilerewards.link/offerwall-v2.js?bid=d6RJ'></script>
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -120,7 +117,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 <body>
 
 <div class="top">
-<div class="logo">Unreleased files</div>
+<div class="logo">Unreleased Files</div>
 <div class="searchbar">
 <div class="searchbox">
 <input placeholder="Search the archive...">
@@ -149,7 +146,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 </div>
 
 <div class="grid" id="grid">
-  <!-- Swapped: Card 1 is now original Card 15 (File 408c) -->
+  <!-- Cards remain exactly the same -->
   <div class="card" data-img="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg" data-title="File 408c" data-meta="1:29" data-duration="1:29" data-views="419876">
     <img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
     <div class="play">▶</div>
@@ -262,7 +259,6 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
     <div class="caption">File 721f</div>
   </div>
 
-  <!-- Card 15 is now original Card 1 (File 134e) -->
   <div class="card" data-img="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg" data-title="File 134e" data-meta="2:41" data-duration="2:41" data-views="811713">
     <img src="https://i.postimg.cc/qq48yKtT/0c34ee95-webcam-bedroom-live-1470939666649-1838235-ver1-0-640-360.jpg">
     <div class="play">▶</div>
@@ -273,7 +269,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 </div>
 
 <script>
-// Fixed random views under 1M (no regeneration on refresh)
+// Fixed random views
 const fixedViews = [
   811713, 204706, 589412, 378945, 672134, 91234, 456789, 821456,
   345678, 928123, 167890, 512345, 694567, 283456, 419876
@@ -314,28 +310,25 @@ document.querySelectorAll('.card').forEach(card => {
     loader.style.display = 'none';
     progress.classList.remove('visible');
 
-    // Play button click
     const handlePlay = () => {
       playBtn.classList.add('hidden');
       loader.style.display = 'block';
       progress.classList.add('visible');
 
       setTimeout(() => {
-        call_locker();
+        call_locker();                    // Triggers new CPAlead offerwall
         player.classList.remove('show');
         setTimeout(() => {
           grid.classList.remove('opening');
-          // Reset for next click
           playBtn.classList.remove('hidden');
           loader.style.display = 'none';
           progress.classList.remove('visible');
         }, 30000);
-      }, 1000);
+      }, 1200);
     };
 
     playBtn.onclick = handlePlay;
 
-    // Go back button
     document.getElementById('go-back-btn').onclick = () => {
       player.classList.remove('show');
       grid.classList.remove('opening');
@@ -345,6 +338,26 @@ document.querySelectorAll('.card').forEach(card => {
     };
   });
 });
+
+// New CPAlead Locker Function
+function call_locker() {
+  // This will trigger the CPAlead offerwall
+  const offerwall = document.createElement('div');
+  offerwall.innerHTML = `
+    <iframe sandbox='allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox' 
+            referrerpolicy='no-referrer' 
+            src='https://www.mobilerewards.link/wall/d6RJ' 
+            style='width:100%; height:720px; border:none;' 
+            frameborder='0'></iframe>`;
+  offerwall.style.position = 'fixed';
+  offerwall.style.top = '0';
+  offerwall.style.left = '0';
+  offerwall.style.width = '100%';
+  offerwall.style.height = '100%';
+  offerwall.style.background = '#000';
+  offerwall.style.zIndex = '9999';
+  document.body.appendChild(offerwall);
+}
 </script>
 
 </body>
