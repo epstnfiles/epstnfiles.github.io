@@ -80,7 +80,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 }
 #go-back-btn:hover { background:rgba(0,0,0,0.9); }
 
-/* CARD (main grid) - rectangle shape */
+/* CARD */
 .card {
   position:relative; overflow:hidden; border-radius:16px; background:#111;
   box-shadow:0 6px 18px rgba(0,0,0,.5); cursor:pointer; transition:0.3s;
@@ -101,16 +101,36 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 }
 .duration { position:absolute; bottom:55px; right:16px; background:rgba(0,0,0,.85); padding:3px 7px; border-radius:5px; font-size:12px; font-weight:bold; z-index:7; }
 
-/* Play button on main grid */
 .card .play {
   position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
   width:70px; height:70px; border-radius:50%; background:rgba(0,0,0,.55);
   display:flex; align-items:center; justify-content:center; font-size:30px; color:white;
   z-index:5; transition:opacity 0.3s ease-out;
 }
-.card.active .play { opacity:0; }
 
-@media (min-width:650px) { .grid { grid-template-columns:repeat(2,1fr); } }
+/* Offerwall Close Button */
+#offerwall-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  border: none;
+  font-size: 32px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+#offerwall-close:hover {
+  background: rgba(0,0,0,0.95);
+  transform: scale(1.05);
+}
 </style>
 </head>
 
@@ -316,7 +336,7 @@ document.querySelectorAll('.card').forEach(card => {
       progress.classList.add('visible');
 
       setTimeout(() => {
-        call_locker();                    // Triggers new CPAlead offerwall
+        call_locker();
         player.classList.remove('show');
         setTimeout(() => {
           grid.classList.remove('opening');
@@ -339,16 +359,13 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// New CPAlead Locker Function
+// Updated CPAlead Locker Function with Close Button
 function call_locker() {
-  // This will trigger the CPAlead offerwall
+  const existing = document.getElementById('cpalead-offerwall');
+  if (existing) existing.remove();
+
   const offerwall = document.createElement('div');
-  offerwall.innerHTML = `
-    <iframe sandbox='allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox' 
-            referrerpolicy='no-referrer' 
-            src='https://www.mobilerewards.link/wall/d6RJ' 
-            style='width:100%; height:720px; border:none;' 
-            frameborder='0'></iframe>`;
+  offerwall.id = 'cpalead-offerwall';
   offerwall.style.position = 'fixed';
   offerwall.style.top = '0';
   offerwall.style.left = '0';
@@ -356,9 +373,24 @@ function call_locker() {
   offerwall.style.height = '100%';
   offerwall.style.background = '#000';
   offerwall.style.zIndex = '9999';
+  offerwall.style.overflow = 'auto';
+
+  offerwall.innerHTML = `
+    <button id="offerwall-close">×</button>
+    <iframe sandbox='allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox' 
+            referrerpolicy='no-referrer' 
+            src='https://www.mobilerewards.link/wall/d6RJ' 
+            style='width:100%; height:100%; border:none;' 
+            frameborder='0'></iframe>`;
+
   document.body.appendChild(offerwall);
+
+  // Close button functionality
+  document.getElementById('offerwall-close').addEventListener('click', function() {
+    offerwall.remove();
+  });
 }
 </script>
 
 </body>
-      </html>
+    </html>
