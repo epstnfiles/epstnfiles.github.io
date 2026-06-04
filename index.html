@@ -8,15 +8,25 @@
 <script type='text/javascript' src='https://www.mobilerewards.link/offerwall-v2.js?bid=d6RJ'></script>
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:white; }
-
-/* Remove blue focus outline */
-*:focus {
+* { 
+  margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
   outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
-*:focus-visible {
+
+/* Nuclear removal of blue focus outline */
+*:focus, 
+*:focus-visible, 
+*:active,
+button:focus, 
+input:focus, 
+.card:focus, 
+a:focus {
   outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* TOP */
@@ -146,7 +156,6 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 </div>
 
 <div class="grid" id="grid">
-  <!-- All 15 cards -->
   <div class="card" data-img="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg" data-title="File 408c" data-meta="1:29" data-duration="1:29" data-views="419876">
     <img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
     <div class="play">▶</div>
@@ -352,4 +361,4 @@ function showOfferwall() {
 </script>
 
 </body>
-      </html>
+        </html>
