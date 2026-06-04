@@ -11,6 +11,14 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:white; }
 
+/* Remove blue focus outline */
+*:focus {
+  outline: none !important;
+}
+*:focus-visible {
+  outline: none !important;
+}
+
 /* TOP */
 .top { padding:20px 16px; text-align:center; background:#0f0f0f; box-shadow:0 3px 10px rgba(0,0,0,.5); position:sticky; top:0; z-index:100; }
 .logo { font-size:32px; font-weight:900; letter-spacing:1.5px; color:#a020f0; margin-bottom:16px; text-transform:uppercase; text-shadow:0 2px 12px rgba(160,32,240,0.6); }
@@ -87,14 +95,14 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 
 @media (min-width:650px) { .grid { grid-template-columns:repeat(2,1fr); } }
 
-/* Square Centered Offerwall */
+/* Smaller Square Centered Offerwall */
 #cpalead-offerwall {
   position:fixed; top:0; left:0; width:100%; height:100%;
   background:rgba(0,0,0,0.75); z-index:9999; display:flex;
   align-items:center; justify-content:center; padding:20px;
 }
 #offerwall-container {
-  width:100%; max-width:620px; height:620px; background:#111;
+  width:100%; max-width:520px; height:520px; background:#111;
   border-radius:16px; position:relative; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.9);
 }
 #offerwall-close {
@@ -138,6 +146,7 @@ body { background:#0a0a0a; font-family:-apple-system,BlinkMacSystemFont,'Segoe U
 </div>
 
 <div class="grid" id="grid">
+  <!-- All 15 cards -->
   <div class="card" data-img="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg" data-title="File 408c" data-meta="1:29" data-duration="1:29" data-views="419876">
     <img src="https://i.postimg.cc/Xq4wd5rf/IMG-20260308-162422.jpg">
     <div class="play">▶</div>
@@ -343,4 +352,4 @@ function showOfferwall() {
 </script>
 
 </body>
-  </html>
+      </html>
